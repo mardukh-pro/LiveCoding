@@ -1,0 +1,10 @@
+services:
+  regression:
+    image: python:3.11
+    volumes:
+      - ./:/usr/workspace
+    working_dir: /usr/workspace
+    command: /bin/sh -c "pip install -r requirements.txt && pytest -sv --alluredir=allure-results"
+    environment:
+      LOGIN: ${LOGIN}
+      PASSWORD: ${PASSWORD}
